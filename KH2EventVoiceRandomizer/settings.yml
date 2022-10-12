@@ -1,0 +1,20 @@
+# Use this file to control how voices are randomized.
+# Platform should be set to PC or PS2, depending on what version of KH2 you're playing.
+# Language should be set to the language code for the voices you want to randomize (the same as the folder under voice), usually us for English or fm for Japanese.
+# WorldMode and CharacterMode control how voices for different worlds and characters are handled.
+# Mix will throw all voices into a single pool, so a voice assigned to a specific world/character can be randomized to any other world/character.
+# Separate will put voices for each world/character into separate pools.
+# Swap will put voices for each world/character into separate pools, and then randomly swap those pools into a different world/character.
+# WorldMode is applied before CharacterMode, so for example, WorldMode: Separate and CharacterMode: Swap will keep voices for each world separate from each other, and then swap the voices for each character within each world.
+# IgnoreWorlds and IgnoreCharacters allow you to exclude worlds and characters from the randomization entirely. Place world/character IDs on separate lines starting with a hyphen and a space e.g.
+# IgnoreWorlds:
+# - tt
+# IgnoreCharacters:
+# - sr
+# will not randomize any voices in Twilight Town, or any of Sora's voice lines.
+Platform: PC
+Language: us
+WorldMode: Mix
+CharacterMode: Mix
+IgnoreWorlds:
+IgnoreCharacters: 
