@@ -168,6 +168,9 @@ namespace KH2EventVoiceRandomizer
 
 	class VoiceLine
 	{
+		static readonly System.Text.RegularExpressions.Regex worldregex = new System.Text.RegularExpressions.Regex(@"([a-z]{2,4})");
+		static readonly System.Text.RegularExpressions.Regex charregex = new System.Text.RegularExpressions.Regex(@"[a-z]{2,4}[0-9]*[A-Z]?([a-z]{2}|[fx][0-9])(?:_[0-9a-z])?");
+
 		public string Name { get; }
 		public string World { get; }
 		public string Character { get; }
@@ -176,11 +179,17 @@ namespace KH2EventVoiceRandomizer
 		public VoiceLine(string name)
 		{
 			Name = name;
-			World = name.Remove(2);
-			int end = name.IndexOf('_');
-			if (end == -1)
-				end = name.Length;
-			Character = name.Substring(end - 2, 2);
+			World = worldregex.Match(name).Groups[1].Value;
+			if (name == "lm409adsr2")
+				Character = "sr";
+			else
+			{
+				var m = charregex.Match(name);
+				if (m.Success)
+					Character = m.Groups[1].Value;
+				else
+					Character = string.Empty;
+			}
 		}
 	}
 }

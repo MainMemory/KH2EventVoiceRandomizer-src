@@ -5964,8 +5964,6 @@ tt90717sr
 tt90801kr
 tt90802Ark
 tt90802kr
-tt_titleL
-tt_titleR
 wi10101Asr
 wi10101Bgo
 wi10101go
